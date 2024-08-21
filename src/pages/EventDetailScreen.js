@@ -1,6 +1,8 @@
 
 
 import React from "react";
+import BottomNavigation from './../components/BottomNavigation';
+
 
 const EventDetailScreen = () => {
   return (
@@ -52,6 +54,12 @@ const EventDetailScreen = () => {
           </button>
         </div>
       </div>
+      <footer>
+      <footer >
+      <BottomNavigation />
+
+      </footer>
+      </footer>
     </div>
   );
 };

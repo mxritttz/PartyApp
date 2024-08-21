@@ -1,4 +1,6 @@
 import React from "react";
+import BottomNavigation from './../components/BottomNavigation';
+
 
 const HomeScreen = () => {
   return (
@@ -44,18 +46,12 @@ const HomeScreen = () => {
         </div>
       </div>
 
-      <footer className="flex justify-around items-center bg-white p-4 shadow-md fixed bottom-0 w-full">
-        <button className="text-pink-500">
-          <img src="/icons/home.svg" alt="Home" />
-        </button>
-        <button>
-          <img src="/icons/map.svg" alt="Map" />
-        </button>
-        <button>
-          <img src="/icons/profile.svg" alt="Profile" />
-        </button>
+      <footer>
+      <BottomNavigation />
+
       </footer>
     </div>
+    
   );
 };
 
