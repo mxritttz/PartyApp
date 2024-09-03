@@ -1,15 +1,16 @@
 import './App.css'
 import { Route, Routes } from 'react-router'
 import { BrowserRouter } from 'react-router-dom'
-import { supabase } from './supabaseClient'
-import EventDetails from './pages/EventDetails'
-import Home from './pages/Home'
+import { supabase } from './supabase/client'
+import EventDetailsPage from './pages/EventDetailsPage'
+import Home from './pages/EventListPage'
 import Map from './pages/Map'
 import { useEffect, useState } from 'react'
 import { Session } from '@supabase/supabase-js'
-import Authentication from './pages/Authentication'
+import Authentication from './pages/AuthenticationPage'
 import Header from './components/Header'
 import BottomNavigation from './components/BottomNavigation'
+import EventForm from './components/form/EventForm'
 
 
 function App() {
@@ -28,18 +29,18 @@ function App() {
 
   return (
     <>
-      <Header session={session}/>
-      
       <BrowserRouter>
+        <Header session={session}/>
         <Routes>
           <Route path="/" element={<Home/>} />
-          <Route path="/auth" element={<Authentication session={session}/>} />
-          <Route path="/event/{id}" element={<EventDetails/>} /> 
-          <Route path="/map" element={<Map/>} />
+          <Route path="/event/:eventId/" element={<EventDetailsPage/>} /> 
+          <Route path="/event/:eventId/edit/" element={<EventForm/>} /> 
+          <Route path="/event/add/" element={<EventForm/>} /> 
+          <Route path="/map/" element={<Map/>} />
+          <Route path="/auth/" element={<Authentication session={session}/>} />
         </Routes>
+        <BottomNavigation/>
       </BrowserRouter>
-
-      <BottomNavigation/>
     </>
   )
 }
