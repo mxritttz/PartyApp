@@ -1,7 +1,7 @@
 import EventCard from "../components/EventCard";
 import { useEvents } from "../supabase/EventService";
 
-const HomeScreen = () => {
+const EventList = () => {
   const { 
     data: events, 
     isLoading, 
@@ -26,4 +26,4 @@ const HomeScreen = () => {
   else return <p>unsuccessful, no error</p>;
 };
 
-export default HomeScreen;
+export default EventList;
