@@ -63,12 +63,8 @@ export const useEvent = (id?: string|undefined) => ({
         useMutation(EventService.create).mutate(data),
     update: (data: EventData, opt: MutateOptions<EventData>) => 
         id ? useMutation(EventService.update).mutate({ id, data }) : null,
-    delete: (opt: MutateOptions) => 
-        id ? useMutation(EventService.delete).mutate(id, {
-            onSuccess(data, variables, context) {
-                
-            },
-        }): null
+    delete: (opt: MutateOptions<EventData|null, any, string, any>) => 
+        id ? useMutation(EventService.delete).mutate(id, opt): null
 });
 
 export const useEvents = () => useQuery<EventData[], Error>(
