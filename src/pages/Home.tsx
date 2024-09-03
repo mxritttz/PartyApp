@@ -1,22 +1,8 @@
-import BottomNavigation from '../components/BottomNavigation';
-
-
 const HomeScreen = () => {
   return (
     <div className="p-4">
-      <header className="flex justify-between items-center p-4 bg-white shadow-md">
-        <h1 className="text-2xl font-bold">PartyPal</h1>
-        <div className="space-x-4">
-          <button>
-            <img src="/icons/menu.svg" alt="Menu" />
-          </button>
-          <button>
-            <img src="/icons/search.svg" alt="Search" />
-          </button>
-        </div>
-      </header>
-
       <div className="mt-4">
+        
         {/* Event Cards */}
         <div className="bg-gray-100 p-4 rounded-lg shadow-md mb-4">
           <img
@@ -45,10 +31,6 @@ const HomeScreen = () => {
         </div>
       </div>
 
-      <footer>
-      <BottomNavigation />
-
-      </footer>
     </div>
     
   );
