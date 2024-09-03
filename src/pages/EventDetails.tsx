@@ -3,7 +3,7 @@ import { useEvent } from '../supabase/EventService';
 import EventCard from '../components/EventCard';
 
 
-const EventDetailsPage = () => {
+const EventDetails = () => {
   const { eventId } = useParams<{ eventId: string }>();
 
   console.log(eventId)
@@ -29,7 +29,7 @@ const EventDetailsPage = () => {
   }
 };
 
-export default EventDetailsPage;
+export default EventDetails;
 
 
 

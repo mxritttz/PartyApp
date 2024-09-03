@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { EventData } from "../../models/Event";
 import { useNavigate, useParams } from "react-router";
-import { useEvent, useEvents } from "../../supabase/EventService";
+import { useEvent } from "../../supabase/EventService";
 import { useEffect } from "react";
 import { useQueryClient } from "react-query";
 
@@ -25,7 +25,7 @@ const EventForm = ({}: EventFormProps) => {
         },
     });
 
-    const { register, reset, formState: { errors } } = form;
+    const { reset } = form;
     
     const { 
         query: { data: event }, 
