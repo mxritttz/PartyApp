@@ -1,9 +1,9 @@
-import { EventModel } from "../models/Event";
+import { EventData } from "../models/Event";
 
-const img = "https://via.placeholder.com/300";
+const img = "https://via.placeholder.com/400x100";
 
 type EventCardProps = {
-  event: EventModel;
+  event: EventData;
 }
 
 const EventCard = ({ event }: EventCardProps) => {
