@@ -1,39 +1,29 @@
-const HomeScreen = () => {
-  return (
-    <div className="p-4">
-      <div className="mt-4">
-        
-        {/* Event Cards */}
-        <div className="bg-gray-100 p-4 rounded-lg shadow-md mb-4">
-          <img
-            src="https://via.placeholder.com/300"
-            alt="Event Thumbnail"
-            className="rounded-md w-full"
-          />
-          <h2 className="mt-2 text-xl font-semibold">Beach Bash</h2>
-          <p className="text-gray-600">Hosted by: Jane Smith</p>
-          <p className="text-gray-600">Date: July 22, 2023</p>
-          <p className="text-gray-600">Location: Malibu Beach</p>
-          <p className="mt-2">Join us for an unforgettable beach party...</p>
-        </div>
+import EventCard from "../components/EventCard";
+import { useEvents } from "../supabase/EventService";
 
-        <div className="bg-gray-100 p-4 rounded-lg shadow-md mb-4">
-          <img
-            src="https://via.placeholder.com/300"
-            alt="Event Thumbnail"
-            className="rounded-md w-full"
-          />
-          <h2 className="mt-2 text-xl font-semibold">Summer Festival</h2>
-          <p className="text-gray-600">Hosted by: Emma Brown</p>
-          <p className="text-gray-600">Date: September 10, 2023</p>
-          <p className="text-gray-600">Location: Central Park</p>
-          <p className="mt-2">Enjoy a day of fun with food stalls, live...</p>
+const HomeScreen = () => {
+  const { 
+    data: events, 
+    isLoading, 
+    isError, 
+    isSuccess,
+    error 
+  } = useEvents();
+
+  if (isLoading) {
+    return <p>Loading</p>
+  } else if (isError) {
+    return <p>{ error ? error.stack ?? error.message : "unknown" }</p>
+  } else if (isSuccess && events) {
+    return (
+      <div className="p-4">
+        <div className="mt-4">
+          { events?.map((event, index) => <EventCard key={index} event={event}/>) }
         </div>
       </div>
-
-    </div>
-    
-  );
+    );
+  } 
+  else return <p>unsuccessful, no error</p>;
 };
 
 export default HomeScreen;
